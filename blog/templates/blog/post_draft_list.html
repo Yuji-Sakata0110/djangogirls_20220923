@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<h2>This is a draft page.</h2>
+<h2>Please make sure these drafts for posting.</h2>
+<br><br>
+
+    {% for post in posts %}
+        <article class="post">
+            <p class='date'>draft</p>
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </article>
+    {% endfor %}
+{% endblock %}
