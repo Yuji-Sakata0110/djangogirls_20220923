@@ -12,13 +12,26 @@
         </a>
         {% endif %}
     </aside>
+
     {% if post.published_date %}
     <time class="date">
         {{ post.published_date }}
     </time>
     {% endif %}
+
     <h2>{{ post.title }}</h2>
     <p>{{ post.text|linebreaksbr }}</p>
     <p>this is detailpage</p>
+
+    <a href='/post/{{ pk }}/comment/'>Add comment</a>
+
+    {% for comment in comments %}
+    <div class="comment">
+        <div class="date">{{ comment.created_date }}</div>
+        <strong>{{ comment.author }}</strong>
+        <p>{{ comment.text|linebreaks }}</p>
+    </div>
+    {% endfor %}
 </article>
+
 {% endblock %}
