@@ -11,7 +11,7 @@ def post_list(request):
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    comments = Comment.objects.all().order_by('-created_date')
+    comments = Comment.objects.filter(post_id=pk).order_by('-created_date')
     return render(request, 'blog/post_detail.html', {'post': post, 'comments':comments, 'pk': pk})
 
 
