@@ -1,9 +1,10 @@
 {% extends 'blog/base.html' %}
+{% load bootstrap4 %}
 
 {% block content %}
     <h2>Edit post</h2>
     <form method="POST" action="/post/{{pk}}/edit/" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
+        {% bootstrap_form form layout="inline" %}
         <button type="submit" class="save btn btn-secondary ms-2">Publish</button>
         <button type="submit" formaction='/post/{{pk}}/edit/draftsave/' class="save btn btn-secondary">Draft</button>
     </form>

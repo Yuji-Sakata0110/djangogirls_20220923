@@ -1,9 +1,10 @@
 {% extends 'blog/base.html' %}
+{% load bootstrap4 %}
 
 {% block content %}
-    <h2>New comment</h2>
-    <form method="POST" action="/post/{{ pk }}/comment/" class="comment-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-secondary">Publish</button>
-    </form>
+<h2>New comment</h2>
+<form method="POST" action="/post/{{ pk }}/comment/" class="comment-form">
+  {% csrf_token %} {% bootstrap_form form layout="inline" %}
+  <button type="submit" class="save btn btn-secondary">Publish</button>
+</form>
 {% endblock %}
