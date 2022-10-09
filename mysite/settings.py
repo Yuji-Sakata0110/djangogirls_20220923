@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import dj_database_url
+import django_heroku
 import os
 from pathlib import Path
 
@@ -31,7 +32,6 @@ except ImportError:
     pass
 
 if not DEBUG:
-    import django_heroku
     django_heroku.settings(locals())
 
 # 許可するホストを定義する。amazon, googleなどのサービスを利用する場合はここで定義したホストのみ許可する。
@@ -78,6 +78,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+            ],
+            'builtins': [
+                'bootstrap4.templatetags.bootstrap4',   #追加
             ],
         },
     },
