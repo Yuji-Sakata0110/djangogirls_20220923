@@ -98,6 +98,7 @@ DATABASES = {
         'NAME': 'heroku_61ce0ed1330e6f3',
         'USER': os.getenv('SQL_USER'),
         'PASSWORD': os.getenv('SQL_PASSWORD'),
+        'HOST': 'us-cdbr-east-06.cleardb.net',
     }
 }
 # Password validation
