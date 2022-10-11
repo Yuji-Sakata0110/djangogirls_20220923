@@ -13,6 +13,9 @@ import dj_database_url
 import django_heroku
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -92,11 +95,9 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'db_sample',
-        'USER': 'root',
-        'PASSWORD': 'Gi4ETw3Y',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'NAME': 'heroku_61ce0ed1330e6f3',
+        'USER': os.getenv('SQL_USER'),
+        'PASSWORD': os.getenv('SQL_PASSWORD'),
     }
 }
 # Password validation
