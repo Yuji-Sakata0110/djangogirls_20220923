@@ -141,13 +141,13 @@ LOGIN_URL = '/'
 DEBUG = False
 
 
-try:
-    from .local_settings import *
-except ImportError:
-    pass
+# try:
+#     from .local_settings import *
+# except ImportError:
+#     pass
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if not DEBUG:
-    import django_heroku
-    django_heroku.settings(locals())
+# if not DEBUG:
+#     import django_heroku
+#     django_heroku.settings(locals())
     # del DATABASES['default']['OPTIONS']['sslmode']
