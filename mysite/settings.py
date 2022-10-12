@@ -36,6 +36,7 @@ except ImportError:
 
 if not DEBUG:
     django_heroku.settings(locals())
+    del DATABASES['default']['OPTIONS']['sslmode']
 
 # 許可するホストを定義する。amazon, googleなどのサービスを利用する場合はここで定義したホストのみ許可する。
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com',
@@ -152,6 +153,3 @@ LOGIN_URL = '/'
 # DATABASES['default'].update(db_from_env)
 # db_from_env = dj_database_url.config(conn_max_age=600, ssl_require=True)
 # DATABASES['default'].update(db_from_env)
-
-django_heroku.settings(locals())
-del DATABASES['default']['OPTIONS']['sslmode']
