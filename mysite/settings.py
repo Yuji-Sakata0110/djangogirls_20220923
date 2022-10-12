@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-import dj_database_url
 import django_heroku
 import os
 from pathlib import Path
@@ -25,28 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '8oe$7r6_adu4-o^)3#b4huf8r)66t=!sj5jvg9ea#p-m^2j!d_'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
-# Herokuように設定を変換してくれるコード。
-try:
-    from config.local_settings import *
-except ImportError:
-    pass
-
-if not DEBUG:
-    django_heroku.settings(locals())
-    del DATABASES['default']['OPTIONS']['sslmode']
-
 # 許可するホストを定義する。amazon, googleなどのサービスを利用する場合はここで定義したホストのみ許可する。
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com',
                  "yujis-blog-djangoapp-0110.herokuapp.com"]
 
-# なんこれ
-# ALLOWED_HOSTS = [os.getenv('PROJECT_DOMAIN') + ".glitch.me"]
-
-
-# Application definition
+ # Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -69,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 ROOT_URLCONF = 'mysite.urls'
 
@@ -153,3 +136,19 @@ LOGIN_URL = '/'
 # DATABASES['default'].update(db_from_env)
 # db_from_env = dj_database_url.config(conn_max_age=600, ssl_require=True)
 # DATABASES['default'].update(db_from_env)
+
+# localがあれば、そちらのDBを読み込む。
+
+DEBUG = False
+
+
+try:
+    from .local_settings import *
+    print('localdatabase')
+except ImportError:
+    pass
+
+# SECURITY WARNING: don't run with debug turned on in production!
+if not DEBUG:
+    django_heroku.settings(locals())
+    # del DATABASES['default']['OPTIONS']['sslmode']
