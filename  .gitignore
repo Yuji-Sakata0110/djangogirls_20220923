@@ -1,4 +1,4 @@
 staticfiles
-local_settings.py
+mysite/local_settings.py
 db.sqlite3
 myvenv

@@ -143,7 +143,6 @@ DEBUG = False
 
 try:
     from .local_settings import *
-    print('localdatabase')
 except ImportError:
     pass
 
