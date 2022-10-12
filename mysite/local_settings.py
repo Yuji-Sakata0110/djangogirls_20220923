@@ -1,7 +1,7 @@
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-ALLOWED_HOSTS = ['127.0.0.1', 'yujis-blog-djangoapp-0110.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 SECRET_KEY = '8oe$7r6_adu4-o^)3#b4huf8r)66t=!sj5jvg9ea#p-m^2j!d_'
 
