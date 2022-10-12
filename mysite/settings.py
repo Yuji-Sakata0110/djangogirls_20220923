@@ -154,3 +154,4 @@ LOGIN_URL = '/'
 # DATABASES['default'].update(db_from_env)
 
 django_heroku.settings(locals())
+del DATABASES['default']['OPTIONS']['sslmode']
