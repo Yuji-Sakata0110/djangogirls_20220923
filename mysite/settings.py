@@ -89,9 +89,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
-# db host add
-DATABASE_HOST = '/tmp/mysql.sock'
-
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 DATABASES = {
