@@ -89,20 +89,22 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
+DATABASE_HOST = '/tmp/mysql.dev.sock'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'heroku_61ce0ed1330e6f3',
+        'NAME': os.getenv('SQL_DBNAME'),
         'USER': os.getenv('SQL_USER'),
         'PASSWORD': os.getenv('SQL_PASSWORD'),
-        'HOST': 'us-cdbr-east-06.cleardb.net',
+        'HOST': os.getenv('SQL_HOST'),
+        'PORT': '3306',
     }
 }
 # Password validation
-# https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
+# https://docs.djamysql_secure_installationngoproject.com/en/4.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
