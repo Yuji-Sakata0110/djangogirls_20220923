@@ -119,9 +119,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 # 静的ファイルにアクセスできるディレクトリを準備する。
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'blog/static/')
+
+# WEB serverに見に行ってほしい静的ファイルパスを指定する。
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# aasset がある場合はこちらにパスを通すr
+# STATICFILES_DIRS = []
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -138,7 +142,7 @@ LOGIN_URL = '/'
 
 # localがあれば、そちらのDBを読み込む。
 
-DEBUG = False
+DEBUG = True
 
 
 # try:
