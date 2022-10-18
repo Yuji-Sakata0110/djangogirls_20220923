@@ -140,10 +140,11 @@ LOGIN_URL = '/'
 # db_from_env = dj_database_url.config(conn_max_age=600, ssl_require=True)
 # DATABASES['default'].update(db_from_env)
 
-# localがあれば、そちらのDBを読み込む。
+# productiuon
+DEBUG = False
 
-DEBUG = True
-
+# local
+# DEBUG = True
 
 # try:
 #     from .local_settings import *
